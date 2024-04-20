@@ -1,6 +1,11 @@
 import java.util.Scanner;
+import java.util.Dictionary;
+import java.util.Hashtable;
 
 public class Funcionario extends Pessoa{
+
+    public Dictionary<Integer, String> listaFuncionarios = new Hashtable<>();
+
     public Funcionario() {
         super();
     }
@@ -19,7 +24,9 @@ public class Funcionario extends Pessoa{
         f1.setDataNascimento(data);
         f1.setCPF(cpf);
 
-        System.out.println("Funcionário " + f1 + " cadastrado");
+        listaFuncionarios.put(f1.getCPF(), f1.getNomeCompleto());
+
+        System.out.println("Funcionário " + f1.getNomeCompleto() + " cadastrado");
         
         scan.close();
     }

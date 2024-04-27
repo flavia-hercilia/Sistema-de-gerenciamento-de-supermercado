@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.Dictionary;
+import java.util.Hashtable;
 
 // Classe Funcionario que herda de Pessoa
 public class Funcionario extends Pessoa{

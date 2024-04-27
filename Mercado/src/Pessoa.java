@@ -1,15 +1,16 @@
 public class Pessoa {
-    private int CPF;
+    private String CPF;
     private int dataNascimento;
     private String nomeCompleto;
-
     
-    public int getCPF() {
+    // Classe Pessoa que serve de base para Cliente e Funcionario    
+    public String getCPF() {
         return CPF;
     }
-    public void setCPF(int cPF) {
+    public void setCPF(String cPF) {
         CPF = cPF;
     }
+    
     public int getDataNascimento() {
         return dataNascimento;
     }

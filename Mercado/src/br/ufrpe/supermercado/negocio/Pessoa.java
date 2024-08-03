@@ -1,3 +1,7 @@
+package br.ufrpe.supermercado.negocio;
+
+import br.ufrpe.supermercado.excecoes.CpfInvalidoExcecao;
+
 public class Pessoa {
     private String CPF;
     private int dataNascimento;
@@ -7,8 +11,11 @@ public class Pessoa {
     public String getCPF() {
         return CPF;
     }
-    public void setCPF(String cPF) {
-        CPF = cPF;
+    public void setCPF(String cPF) throws CpfInvalidoExcecao{
+        if (cPF == null || cPF.isEmpty() || cPF.length() != 11){
+            throw new CpfInvalidoExcecao();
+        }
+        this.CPF = cPF;
     }
     
     public int getDataNascimento() {

@@ -1,7 +1,11 @@
+package br.ufrpe.supermercado.dados.cliente;
 // import java.util.Dictionary;
 // import java.util.Hashtable;
 
 // Implementação do Repositório de Clientes
+
+import br.ufrpe.supermercado.negocio.Cliente;
+
 public class RepositorioArrayClientes implements IRepositorioClientes {
     
     //mudanças

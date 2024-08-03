@@ -1,9 +1,12 @@
+package br.ufrpe.supermercado.dados.funcionario;
 // Implementação do Repositório de Funcionários
 
 // import java.util.Dictionary;
 // import java.util.Hashtable;
 import java.util.HashMap;
 import java.util.Map;
+
+import br.ufrpe.supermercado.negocio.Funcionario;
 
 public class RepositorioArrayFuncionarios implements IRepositorioFuncionarios {
     

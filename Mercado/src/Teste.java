@@ -2,6 +2,22 @@
 
 import java.util.Scanner;
 
+
+import br.ufrpe.supermercado.dados.cliente.*;
+import br.ufrpe.supermercado.dados.funcionario.*;
+import br.ufrpe.supermercado.dados.produto.*;
+
+//Apenas pra demonstrar como o "*" sintetiza nosso código.
+//import br.ufrpe.supermercado.dados.cliente.IRepositorioClientes;
+//import br.ufrpe.supermercado.dados.cliente.RepositorioArrayClientes;
+//import br.ufrpe.supermercado.dados.funcionario.IRepositorioFuncionarios;
+//import br.ufrpe.supermercado.dados.funcionario.RepositorioArrayFuncionarios;
+//import br.ufrpe.supermercado.dados.produto.IRepositorioProdutos;
+//import br.ufrpe.supermercado.dados.produto.RepositorioArrayProdutos;
+import br.ufrpe.supermercado.negocio.*;
+//import br.ufrpe.supermercado.negocio.Funcionario;
+//import br.ufrpe.supermercado.negocio.Produto;
+
 public class Teste {
     public static void main(String[] args) throws Exception {
         System.out.println("Bem vindo ao mercadinho! \n################################");

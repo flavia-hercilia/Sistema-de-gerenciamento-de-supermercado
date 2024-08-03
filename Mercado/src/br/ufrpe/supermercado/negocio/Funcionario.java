@@ -1,6 +1,12 @@
+package br.ufrpe.supermercado.negocio;
 import java.util.Scanner;
-import java.util.Dictionary;
-import java.util.Hashtable;
+import java.util.logging.Level;
+//import java.util.Dictionary;
+//import java.util.Hashtable;
+import java.util.logging.Logger;
+
+import br.ufrpe.supermercado.dados.funcionario.IRepositorioFuncionarios;
+import br.ufrpe.supermercado.excecoes.CpfInvalidoExcecao;
 
 // Classe Funcionario que herda de Pessoa
 public class Funcionario extends Pessoa{
@@ -14,15 +20,26 @@ public class Funcionario extends Pessoa{
         String cpf = scan.nextLine();
         System.out.println("Digite a data de nascimento: ");
         int data = scan.nextInt();
+
+        Funcionario funcionario = null;
+        boolean isFuncionarioValido = true;
         
-        Funcionario funcionario = new Funcionario();
-        funcionario.setNomeCompleto(nome);
-        funcionario.setCPF(cpf);
-        funcionario.setDataNascimento(data);
+        try {
+            funcionario = new Funcionario();
+            funcionario.setNomeCompleto(nome);
+            funcionario.setCPF(cpf);
+            funcionario.setDataNascimento(data);
+        }catch (CpfInvalidoExcecao ex) {
+            Logger.getLogger(Funcionario.class.getName()).log(Level.SEVERE, null,ex);
+            isFuncionarioValido = false;
+        }
 
-        repositorioFuncionarios.inserir(funcionario);
-
-        System.out.println("Funcionário " + funcionario.getNomeCompleto() + " cadastrado com sucesso!");
+        if (isFuncionarioValido) {
+            repositorioFuncionarios.inserir(funcionario);
+            System.out.println("Funcionário " + funcionario.getNomeCompleto() + " cadastrado com sucesso!");
+        } else {
+            System.out.println("Erro ao cadastrar o funcionário devido a um CPF inválido.");
+        }
         
         // scan.close();
     }
@@ -33,8 +50,6 @@ public class Funcionario extends Pessoa{
 
         System.out.println("Digite o cpf do funcionario para remover: ");
         String itemRm = scan.nextLine();
-        
-
 
         if(repositorioFuncionarios.buscarPorCPF(itemRm) == true){
             

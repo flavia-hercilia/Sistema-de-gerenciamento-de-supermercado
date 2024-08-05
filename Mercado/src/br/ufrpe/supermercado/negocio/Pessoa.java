@@ -2,7 +2,7 @@ package br.ufrpe.supermercado.negocio;
 
 import br.ufrpe.supermercado.excecoes.CpfInvalidoExcecao;
 
-public class Pessoa {
+public abstract class Pessoa {
     private String CPF;
     private int dataNascimento;
     private String nomeCompleto;

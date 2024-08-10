@@ -6,4 +6,6 @@ import br.ufrpe.supermercado.negocio.*;
 
 public interface IRepositorioProdutos  {
     void inserir(Produto produto);
+    // void remover(String nomePoduto);
+    // void listarProdutos();
 }

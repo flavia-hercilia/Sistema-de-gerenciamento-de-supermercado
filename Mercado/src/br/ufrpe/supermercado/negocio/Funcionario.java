@@ -48,18 +48,20 @@ public class Funcionario extends Pessoa{
         @SuppressWarnings("resource")
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Digite o cpf do funcionario para remover: ");
+        System.out.println("Digite o CPF do funcionário para remover: ");
         String itemRm = scan.nextLine();
 
         if(repositorioFuncionarios.buscarPorCPF(itemRm) == true){
             
             repositorioFuncionarios.remover(itemRm);
-            return "Funcionario de cpf " + itemRm + " foi removido com sucesso!";
+            return "Funcionário de CPF " + itemRm + " foi removido com sucesso!";
         }else{
-            return "Cpf incorreto ou Funcionario nao esta cadastrado!";
+            return "CPF incorreto ou Funcionário não está cadastrado!";
         }      
 
         // scan.close();
+
+        
         
         
     }

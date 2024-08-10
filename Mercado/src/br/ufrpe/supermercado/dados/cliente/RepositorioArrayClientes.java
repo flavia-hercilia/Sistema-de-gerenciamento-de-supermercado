@@ -2,6 +2,8 @@ package br.ufrpe.supermercado.dados.cliente;
 // import java.util.Dictionary;
 // import java.util.Hashtable;
 
+// import java.util.ArrayList;
+
 // Implementação do Repositório de Clientes
 
 import br.ufrpe.supermercado.negocio.Cliente;
@@ -9,7 +11,7 @@ import br.ufrpe.supermercado.negocio.Cliente;
 public class RepositorioArrayClientes implements IRepositorioClientes {
     
     //mudanças
-    //private Dictionary<Integer, Cliente> clientes;
+    //private Dictionary<Integer, Cliente> clientes;    
     private Cliente[] clientes;
     private int tamanhoAtual;
 
@@ -43,23 +45,38 @@ public class RepositorioArrayClientes implements IRepositorioClientes {
         
     }
 
-    
-    // public RepositorioArrayClientes() {
-    //     this.clientes = new Hashtable<>();
-    // }
-    
-    // @Override
-    // public void inserir(Cliente cliente) {
-    //     clientes.put(cliente.getCPF(), cliente);
-    // }
-    
-    // @Override
-    // public Cliente buscarPorCPF(long cpfConsulta) {
-    //     return null;
+    @Override
+    public void remover(String cpf) {        
+        int currentLength = clientes.length;
+        for (int i = 0; i < currentLength; i++) {
+            if (clientes[i].getCPF().equals(cpf)){
+                clientes[i] = clientes[currentLength - 1];
+                currentLength--;
+                break; 
+            }
 
-    // }
+            if (i == currentLength - 1) {
+            System.out.println("Cliente nao cadastrado!");
+            }
+        }
+    }
 
-    //fimMudanças
+    @Override
+    public boolean buscarPorCPF(String cpfConsulta) {
+        if(cpfConsulta.length() != 11){
+            return false;
+        }else{
+            int currentLength = clientes.length;
+            for (int i = 0; i < currentLength; i++) {
+                if (clientes[i].getCPF().equals(cpfConsulta)){
+                    return true;                     
+                }  
+                
+            }
+            return false;
+        }
+    } 
+    
 
 
     

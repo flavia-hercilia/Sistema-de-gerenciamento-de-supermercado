@@ -4,6 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import br.ufrpe.supermercado.dados.cliente.IRepositorioClientes;
+// import br.ufrpe.supermercado.dados.funcionario.IRepositorioFuncionarios;
 import br.ufrpe.supermercado.excecoes.CpfInvalidoExcecao;
 
 // Classe Cliente que herda de Pessoa
@@ -45,8 +46,24 @@ public class Cliente extends Pessoa{
             System.out.println("Erro ao cadastrar o cliente devido a um CPF inválido.");
         }
         
-        
+
         //scan.close();
+    }
+
+    public String removerCliente(IRepositorioClientes repositorioClientes){
+        @SuppressWarnings("resource")
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Digite o cpf do funcionario para remover: ");
+        String itemRm = scan.nextLine();
+
+        if(repositorioClientes.buscarPorCPF(itemRm) == true){
+        
+            repositorioClientes.remover(itemRm);
+            return "Funcionario de cpf " + itemRm + " foi removido com sucesso!";
+        }else{
+            return "Cpf incorreto ou Funcionario nao esta cadastrado!";
+        }
     }
 
     

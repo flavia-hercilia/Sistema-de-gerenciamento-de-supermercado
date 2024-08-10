@@ -35,4 +35,16 @@ public class RepositorioArrayFuncionarios implements IRepositorioFuncionarios {
     public void remover(String cpf) {
         funcionarios.remove(cpf);
     }
+
+    @Override
+    public void listarFuncionarios() {
+
+        for (String key : funcionarios.keySet()) {
+
+            //Capturamos o valor a partir da chave
+            var value = funcionarios.get(key);
+            System.out.println("Nome funcionario: " + value.getNomeCompleto() + "\nCPF: " + value.getCPF());
+     }
+        
+    }
 }

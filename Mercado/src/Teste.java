@@ -2,7 +2,6 @@
 
 import java.util.Scanner;
 
-
 import br.ufrpe.supermercado.dados.cliente.*;
 import br.ufrpe.supermercado.dados.funcionario.*;
 import br.ufrpe.supermercado.dados.produto.*;
@@ -23,10 +22,10 @@ public class Teste {
         System.out.println("Bem vindo ao mercadinho! \n################################");
         @SuppressWarnings("resource")
         Scanner scan = new Scanner(System.in);
-        
-        //controle menu
+
+        // controle menu
         boolean menu = true;
-        
+
         IRepositorioClientes repositorioClientes = new RepositorioArrayClientes();
         IRepositorioFuncionarios repositorioFuncionarios = new RepositorioArrayFuncionarios();
         IRepositorioProdutos repositorioProdutos = new RepositorioArrayProdutos();
@@ -40,6 +39,7 @@ public class Teste {
             System.out.println("Escolha uma opção: \n1- Área Cliente \n2- Área Funcionário \n3- Área Produto \n4- Sair");
 
             String option = scan.nextLine();
+
             switch (option) {
                 case "1":
                     System.out.println("Escolha uma opção: \n1- Cadastro de cliente \n2- Listar clientes \n3- Remover cliente" + //
@@ -97,6 +97,7 @@ public class Teste {
                             break;
                     }
                     break;
+
                 case "4":
                     menu = false;
                     break;
@@ -110,8 +111,9 @@ public class Teste {
             scan.nextLine();
             
         }
+
         System.out.println("O programa se encerrou!");
-        //scan.close();
+        scan.close();
 
                 
     }

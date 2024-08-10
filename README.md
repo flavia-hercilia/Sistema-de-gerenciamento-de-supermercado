@@ -35,7 +35,7 @@
 
 ## Autores
 
- - [x] Flávia Hercília da Silva  ✔
+ - [x] Flávia Hercília da Silva  ✔ [![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/flaviaherciliadasilva)
  - [x] Jacqueline Navarro da Silva ✔ [![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jacqueline-navarro-a928113b/)
  - [x] Maria Eduarda Martins Ribeiro Carneiro da Silva ✔
 

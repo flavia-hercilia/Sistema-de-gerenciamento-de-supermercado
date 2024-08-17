@@ -11,7 +11,6 @@ import br.ufrpe.supermercado.negocio.Produto;
 
 public class RepositorioArrayProdutos implements IRepositorioProdutos{
     
-    
     public Map<String, Produto> produtos;
 
     public RepositorioArrayProdutos() {
@@ -22,4 +21,15 @@ public class RepositorioArrayProdutos implements IRepositorioProdutos{
     public void inserir(Produto produto) {
         produtos.put(produto.getNomeProduto(), produto);
     }
+
+    @Override
+    public void listarProdutos() {
+
+        for (String key : produtos.keySet()) {
+
+            var value = produtos.get(key);
+            System.out.println("- " + value.getNomeProduto() + "\nR$ " + value.getPreco());
+     }
+    }
+
 }

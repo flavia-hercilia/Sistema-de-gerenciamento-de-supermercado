@@ -36,7 +36,7 @@ public class Teste {
 
         while (menu) {
             
-            System.out.println("Escolha uma opção: \n1- Área Cliente \n2- Área Funcionário \n3- Área Produto \n4- Sair");
+            System.out.println("Escolha uma opção: \n1- Área Cliente \n2- Área Funcionário \n3- Área Produto \n4- Vendas \n5- Sair");
 
             String option = scan.nextLine();
 
@@ -88,10 +88,10 @@ public class Teste {
                             produto.cadastrarProduto(repositorioProdutos);
                             break;
                         case "2":
-                            // listar produto
+                            repositorioProdutos.listarProdutos();
                             break;
                         case "3":
-                            // remover produto
+                            //remover produtos 
                             break;
                         default:
                             break;
@@ -99,6 +99,21 @@ public class Teste {
                     break;
 
                 case "4":
+                    System.out.println("Escolha uma opção: \n1-Nova venda \n2- Número de vendas \n3- Histórico \n4- Voltar");
+                    String optionV = scan.nextLine();
+                    switch (optionV) {
+                        case "1":                            
+                            //nova venda
+                        case "2":
+                            //numero de vendas
+                        case "3":
+                            //historico de vendas
+                        default:
+                            break;
+                    }
+                    break;
+
+                case "5":
                     menu = false;
                     break;
                 default:

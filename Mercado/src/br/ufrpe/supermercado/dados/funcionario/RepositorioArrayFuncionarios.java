@@ -26,7 +26,6 @@ public class RepositorioArrayFuncionarios implements IRepositorioFuncionarios {
         if(cpfConsulta.length() != 11 || funcionarios.containsKey(cpfConsulta) == false){
             return false;
         }else{
-
             return true;
         }
     }
@@ -45,6 +44,5 @@ public class RepositorioArrayFuncionarios implements IRepositorioFuncionarios {
             var value = funcionarios.get(key);
             System.out.println("Nome funcionario: " + value.getNomeCompleto() + "\nCPF: " + value.getCPF());
      }
-        
     }
 }

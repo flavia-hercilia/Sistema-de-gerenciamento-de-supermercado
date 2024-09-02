@@ -1,10 +1,14 @@
 package br.ufrpe.supermercado.negocio;
 
+
+import java.time.LocalDate;
+
 import br.ufrpe.supermercado.excecoes.CpfInvalidoExcecao;
 
 public abstract class Pessoa {
+    
     private String CPF;
-    private int dataNascimento;
+    private LocalDate dataNascimento; 
     private String nomeCompleto;
     
     
@@ -100,10 +104,10 @@ public abstract class Pessoa {
     }
     
     
-    public int getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
-    public void setDataNascimento(int dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
     public String getNomeCompleto() {

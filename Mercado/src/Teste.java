@@ -2,20 +2,7 @@
 
 import java.util.Scanner;
 
-import br.ufrpe.supermercado.dados.cliente.*;
-import br.ufrpe.supermercado.dados.funcionario.*;
-import br.ufrpe.supermercado.dados.produto.*;
-
-//Apenas pra demonstrar como o "*" sintetiza nosso código.
-//import br.ufrpe.supermercado.dados.cliente.IRepositorioClientes;
-//import br.ufrpe.supermercado.dados.cliente.RepositorioArrayClientes;
-//import br.ufrpe.supermercado.dados.funcionario.IRepositorioFuncionarios;
-//import br.ufrpe.supermercado.dados.funcionario.RepositorioArrayFuncionarios;
-//import br.ufrpe.supermercado.dados.produto.IRepositorioProdutos;
-//import br.ufrpe.supermercado.dados.produto.RepositorioArrayProdutos;
-import br.ufrpe.supermercado.negocio.*;
-//import br.ufrpe.supermercado.negocio.Funcionario;
-//import br.ufrpe.supermercado.negocio.Produto;
+import br.ufrpe.supermercado.negocio.Facade;
 
 public class Teste {
     public static void main(String[] args) throws Exception {
@@ -26,52 +13,50 @@ public class Teste {
         // controle menu
         boolean menu = true;
 
-        IRepositorioClientes repositorioClientes = new RepositorioArrayClientes();
-        IRepositorioFuncionarios repositorioFuncionarios = new RepositorioArrayFuncionarios();
-        IRepositorioProdutos repositorioProdutos = new RepositorioArrayProdutos();
-        
-        //mudado de lugar teste
-        Funcionario funcionario = new Funcionario();
-        Cliente cliente = new Cliente();
+        Facade fachada = new Facade();
 
         while (menu) {
-            
-            System.out.println("Escolha uma opção: \n1- Área Cliente \n2- Área Funcionário \n3- Área Produto \n4- Vendas \n5- Sair");
+
+            System.out.println(
+                    "Escolha uma opção: \n1- Área Cliente \n2- Área Funcionário \n3- Área Produto \n4- Vendas \n5- Sair");
 
             String option = scan.nextLine();
 
             switch (option) {
                 case "1":
-                    System.out.println("Escolha uma opção: \n1- Cadastro de cliente \n2- Listar clientes \n3- Remover cliente" + //
-                                        "\n4- Voltar");
+                    System.out.println(
+                            "Escolha uma opção: \n1- Cadastro de cliente \n2- Listar clientes \n3- Remover cliente" + //
+                                    "\n4- Voltar");
                     String optionC = scan.nextLine();
                     switch (optionC) {
-                        case "1":                            
-                            cliente.cadastrarCliente(repositorioClientes);
+                        case "1":
+                            fachada.cadastrarCliente();
                             break;
                         case "2":
-                            repositorioClientes.listarClientes();
+                            fachada.listarClientes();
                             break;
-                        case "3":                            
-                            System.out.println(cliente.removerCliente(repositorioClientes));                            
+                        case "3":
+                            fachada.removerCliente();
                             break;
                         default:
                             break;
                     }
                     break;
                 case "2":
-                    System.out.println("Escolha uma opção: \n1- Cadastro de funcionario \n2- Listar funcionarios \n3- Remover funcionario" + //
-                                        "\n4- Voltar");
+                    System.out.println(
+                            "Escolha uma opção: \n1- Cadastro de funcionario \n2- Listar funcionarios \n3- Remover funcionario"
+                                    + //
+                                    "\n4- Voltar");
                     String optionF = scan.nextLine();
                     switch (optionF) {
                         case "1":
-                            funcionario.cadastrarFuncionario(repositorioFuncionarios);
+                            fachada.cadastrarFuncionario();
                             break;
                         case "2":
-                            repositorioFuncionarios.listarFuncionarios();
+                            fachada.listarFuncionarios();
                             break;
                         case "3":
-                            System.out.println(funcionario.removerFuncionario(repositorioFuncionarios));
+                            fachada.removerFuncionario();
                             break;
                         default:
                             // volta pro menu anterior
@@ -79,19 +64,19 @@ public class Teste {
                     }
                     break;
                 case "3":
-                    System.out.println("Escolha uma opção: \n1- Cadastro de produto \n2- Listar produtos \n3- Remover produto" + //
-                                        "\n4- Voltar");
+                    System.out.println(
+                            "Escolha uma opção: \n1- Cadastro de produto \n2- Listar produtos \n3- Remover produto" + //
+                                    "\n4- Voltar");
                     String optionP = scan.nextLine();
                     switch (optionP) {
                         case "1":
-                            Produto produto = new Produto();
-                            produto.cadastrarProduto(repositorioProdutos);
+                            fachada.cadastrarProduto();
                             break;
                         case "2":
-                            repositorioProdutos.listarProdutos();
+                            fachada.listarProdutos();
                             break;
                         case "3":
-                            //remover produtos 
+                            fachada.removerProduto();
                             break;
                         default:
                             break;
@@ -99,15 +84,23 @@ public class Teste {
                     break;
 
                 case "4":
-                    System.out.println("Escolha uma opção: \n1-Nova venda \n2- Número de vendas \n3- Histórico \n4- Voltar");
+                    System.out.println(
+                            "Escolha uma opção: \n1-Nova venda \n2- Número de vendas \n3- Histórico \n4- Voltar");
                     String optionV = scan.nextLine();
                     switch (optionV) {
-                        case "1":                            
-                            //nova venda
+                        case "1":
+                            // nova venda
+                            // seria onde instanciaria com cliente produtos list e func
+                            // tbm seria onde iria realizar a venda de fato - chamendo metodo de
+                            // calcularvalor
+                            // e dentro do metodo um if de concluir ou nao
+                            // concluindo sim a venda era add no banco do super
                         case "2":
-                            //numero de vendas
+                            // numero de vendas
+                            // uma contagem de itens na lista de vendas do super
                         case "3":
-                            //historico de vendas
+                            // historico de vendas
+                            // um for da lista de vendas do super
                         default:
                             break;
                     }
@@ -121,17 +114,13 @@ public class Teste {
                     break;
             }
 
-           
             System.out.println("Pressione uma tecla para continuar");
             scan.nextLine();
-            
+
         }
 
         System.out.println("O programa se encerrou!");
         scan.close();
 
-                
     }
 }
-
-

@@ -1,5 +1,4 @@
 package br.ufrpe.supermercado.dados.funcionario;
-// Interface para Repositório de Funcionários
 
 import br.ufrpe.supermercado.negocio.Funcionario;
 

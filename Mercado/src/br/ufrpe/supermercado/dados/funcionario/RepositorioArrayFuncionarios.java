@@ -1,8 +1,5 @@
 package br.ufrpe.supermercado.dados.funcionario;
-// Implementação do Repositório de Funcionários
 
-// import java.util.Dictionary;
-// import java.util.Hashtable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,7 +37,6 @@ public class RepositorioArrayFuncionarios implements IRepositorioFuncionarios {
 
         for (String key : funcionarios.keySet()) {
 
-            //Capturamos o valor a partir da chave
             var value = funcionarios.get(key);
             System.out.println("Nome funcionario: " + value.getNomeCompleto() + "\nCPF: " + value.getCPF());
      }

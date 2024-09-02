@@ -1,16 +1,12 @@
 package br.ufrpe.supermercado.dados.produto;
 
-// Implementação do Repositório de Produtos
-
-// import java.util.Dictionary;
-// import java.util.Hashtable;
 import java.util.HashMap;
 import java.util.Map;
 
 import br.ufrpe.supermercado.negocio.Produto;
 
-public class RepositorioArrayProdutos implements IRepositorioProdutos{
-    
+public class RepositorioArrayProdutos implements IRepositorioProdutos {
+
     public Map<String, Produto> produtos;
 
     public RepositorioArrayProdutos() {
@@ -19,7 +15,7 @@ public class RepositorioArrayProdutos implements IRepositorioProdutos{
 
     @Override
     public void inserir(Produto produto) {
-        produtos.put(produto.getNomeProduto(), produto);
+        produtos.put(produto.getEan(), produto); 
     }
 
     @Override
@@ -28,8 +24,30 @@ public class RepositorioArrayProdutos implements IRepositorioProdutos{
         for (String key : produtos.keySet()) {
 
             var value = produtos.get(key);
-            System.out.println("- " + value.getNomeProduto() + "\nR$ " + value.getPreco());
-     }
+            System.out.println(
+                    "Código de Barras: " + value.getEan() + "\nProduto: " + value.getNomeProduto() + "\nValor: R$ "
+                            + value.getPreco());
+
+        }
+    }
+
+    @Override
+    public void remover(String ean) {
+        produtos.remove(ean);
+    }
+
+    @Override
+    public boolean buscarPorNomeProduto(String nomeProduto) {
+        boolean result = false;
+        for (String key : produtos.keySet()) {
+
+            var valueNome = produtos.get(key).getNomeProduto().toUpperCase();
+            if (nomeProduto.toUpperCase() == valueNome) {
+                result = true;
+            }
+        }
+
+        return result;
     }
 
 }

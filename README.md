@@ -19,6 +19,8 @@
 - [x] Atividade IV: 27/04/2024.
 - [x] Atividade V: 03/08/2024.
 - [x] Atividade VI: 10/08/2024.
+- [x] Atividade VII: 17/08/2024.
+- [x] Atividade VIII: 07/09/2024.
 ---
 > Este repositório público foi criado para atender à exigência de armazenamento do nosso projeto no GitHub, conforme solicitado pelo nosso docente.
 

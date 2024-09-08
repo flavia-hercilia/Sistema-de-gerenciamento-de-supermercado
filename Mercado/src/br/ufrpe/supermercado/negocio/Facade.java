@@ -8,11 +8,14 @@ import java.util.logging.Logger;
 import br.ufrpe.supermercado.dados.cliente.RepositorioArrayClientes;
 import br.ufrpe.supermercado.dados.funcionario.RepositorioArrayFuncionarios;
 import br.ufrpe.supermercado.dados.produto.RepositorioArrayProdutos;
+import br.ufrpe.supermercado.dados.venda.RepositorioArrayVendas;
 import br.ufrpe.supermercado.excecoes.CampoVazioExcecao;
 import br.ufrpe.supermercado.excecoes.CpfInvalidoExcecao;
 
 public class Facade {
-
+    @SuppressWarnings("unused")
+    private Produto produto;
+    private RepositorioArrayVendas repositorioVendas;
     private RepositorioArrayClientes repositorioClientes;
     private RepositorioArrayFuncionarios repositorioFuncionarios;
     private RepositorioArrayProdutos repositorioProdutos;
@@ -21,6 +24,7 @@ public class Facade {
         this.repositorioClientes = new RepositorioArrayClientes();
         this.repositorioFuncionarios = new RepositorioArrayFuncionarios();
         this.repositorioProdutos = new RepositorioArrayProdutos();
+        this.repositorioVendas = new RepositorioArrayVendas();
     }
     
     //CLIENTE
@@ -155,6 +159,9 @@ public class Facade {
         String nomeProduto = scan.nextLine();
         System.out.println("Digite o preço do produto: ");
         double preco = scan.nextDouble();
+        System.out.println("Digite o estoque do produto: ");
+        int qntEmEstoque = scan.nextInt();
+
 
         scan.nextLine();
 
@@ -170,6 +177,7 @@ public class Facade {
             produto.setEan(ean); // tbm subi ean aqui
             produto.setNomeProduto(nomeProduto);
             produto.setPreco(preco);
+            produto.setQuantidadeEmEstoque(qntEmEstoque);
 
             repositorioProdutos.inserir(produto);
 
@@ -198,6 +206,40 @@ public class Facade {
 
     public void listarProdutos(){
         repositorioProdutos.listarProdutos();
+    }
+
+    public void realizarVenda() {
+        @SuppressWarnings("resource")
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("Informe o CPF do cliente: ");
+        String cpf = scan.nextLine();
+
+        if (!repositorioClientes.buscarPorCPF(cpf)) {
+            System.out.println("Cliente não encontrado.");
+            return;
+        }
+
+        System.out.print("Informe o nome do produto: ");
+        String nomeProduto = scan.nextLine();
+
+        if (repositorioProdutos.buscarPorNomeProduto(nomeProduto)) {
+            System.out.println("Produto não encontrado.");
+            return;
+        }
+
+        System.out.print("Informe a quantidade: ");
+        @SuppressWarnings("unused")
+        int quantidade = scan.nextInt();
+
+        Venda novaVenda = new Venda();
+        repositorioVendas.registrarVenda(novaVenda);
+
+        System.out.println("Venda realizada com sucesso!");
+    }
+
+    public void listarVendas() {
+        repositorioVendas.listarVendas();
     }
 
 

@@ -89,15 +89,9 @@ public class Teste {
                     String optionV = scan.nextLine();
                     switch (optionV) {
                         case "1":
-                            // nova venda
-                            // seria onde instanciaria com cliente produtos list e func
-                            // tbm seria onde iria realizar a venda de fato - chamendo metodo de
-                            // calcularvalor
-                            // e dentro do metodo um if de concluir ou nao
-                            // concluindo sim a venda era add no banco do super
+                            fachada.realizarVenda();
                         case "2":
-                            // numero de vendas
-                            // uma contagem de itens na lista de vendas do super
+                            fachada.listarVendas();
                         case "3":
                             // historico de vendas
                             // um for da lista de vendas do super

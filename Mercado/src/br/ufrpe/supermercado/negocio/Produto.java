@@ -4,6 +4,15 @@ public class Produto {
     private String ean; 
     private String nomeProduto;
     private double preco;
+    private int quantidadeEmEstoque;
+
+    public int getQuantidadeEmEstoque() {
+        return quantidadeEmEstoque;
+    }
+
+    public void setQuantidadeEmEstoque(int quantidadeEmEstoque) {
+        this.quantidadeEmEstoque = quantidadeEmEstoque;
+    }
 
     public String getEan() {
         return ean;
